@@ -1,0 +1,30 @@
+.bg-primary {
+    background-color: #007700 !important;
+}
+
+.disabled {
+    color: #FFFF00 !important;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+}
+
+.cats {
+    height: 600px;
+    margin: auto;
+}
+
+.bg {
+    background-color: rgba(127, 127, 127, 0.5);
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

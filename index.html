@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>My Webpage</title>
+        <link rel="icon" href="http://example.com/favicon.png">
+        <link rel="shortcut icon" href="ava.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div class="container container-lg my-3">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container-fluid ">
+                <a class="navbar-brand" aria-current="true" href="index.html">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cats.html">Cats</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dogs.html">Dogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="wild.html">Wild animals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Your link can be here for 10$/week only</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container container-lg my-3 selection">
+            <div>
+                <h1 id="preferences">
+                    Which animals do you like?
+                </h1>
+            </div>
+            <div class="btn-group" role="group" aria-label="preferences">
+                <button type="button" class="btn btn-primary">Cats</button>
+                <button type="button" class="btn btn-primary">Dogs</button>
+                <button type="button" class="btn btn-primary">Wild animals</button>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let buttons = document.querySelectorAll('button');
+                for (let i = 0; i < buttons.length; i++){
+                    buttons[i].addEventListener('click', function() {
+                        for (let j = 0; j < buttons.length; j++){
+                            buttons[j].style.backgroundColor = null;
+                        }
+                        switch(i) {
+                            case 1: document.querySelector('#preferences').innerHTML = "You like <b>cats</b>. You may select the appropriate link in top menu or just wait few seconds for automatic re-direction"; break;
+                            case 2: document.querySelector('#preferences').innerHTML = "You like <i>dogs</i>. You may select the appropriate link in top menu or just wait few seconds for automatic re-direction"; break;
+                            case 3: document.querySelector('#preferences').innerHTML = "You like <u>wild animals</u>. You may select the appropriate link in top menu or just wait few seconds for automatic re-direction"; break;
+                        }
+                        for (t = 0; t < 10; t++){
+                            setTimeout(() => {
+                                buttons[i].style.backgroundColor = null;
+                            }, t * 1000)
+                            setTimeout(() => {
+                                buttons[i].style.backgroundColor = 'orange';
+                            }, t * 1000 + 500)
+                        };
+                        setTimeout(() => {
+                            switch(i) {
+                                case 1: window.location.href = 'cats.html'; break;
+                                case 2: window.location.href = 'dogs.html'; break;
+                                case 3: window.location.href = 'wild.html'; break;
+                            }
+                        }, 10000)
+                    })
+                }
+        })
+        </script>
+    </body>
+</html>
